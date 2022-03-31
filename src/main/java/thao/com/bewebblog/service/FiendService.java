@@ -1,12 +1,13 @@
 package thao.com.bewebblog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import thao.com.bewebblog.model.Friends;
 import thao.com.bewebblog.repository.IFriendRepository;
 import thao.com.bewebblog.service.impl.IFriendService;
 
 import java.util.Optional;
-
+@Service
 public class FiendService implements IFriendService {
 
     @Autowired

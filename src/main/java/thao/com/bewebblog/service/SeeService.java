@@ -1,12 +1,13 @@
 package thao.com.bewebblog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import thao.com.bewebblog.model.See;
 import thao.com.bewebblog.repository.ISeeRepository;
 import thao.com.bewebblog.service.impl.ISeeService;
 
 import java.util.Optional;
-
+@Service
 public class SeeService implements ISeeService {
 
     @Autowired

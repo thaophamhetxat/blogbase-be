@@ -1,12 +1,13 @@
 package thao.com.bewebblog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import thao.com.bewebblog.model.Comment;
 import thao.com.bewebblog.repository.ICommentRepository;
 import thao.com.bewebblog.service.impl.ICommentService;
 
 import java.util.Optional;
-
+@Service
 public class CommentService implements ICommentService {
     @Autowired
     ICommentRepository iCommentRepository;

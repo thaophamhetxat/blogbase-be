@@ -1,13 +1,14 @@
 package thao.com.bewebblog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import thao.com.bewebblog.model.Post;
 import thao.com.bewebblog.repository.IPostCategoryRepository;
 import thao.com.bewebblog.repository.IPostRepository;
 import thao.com.bewebblog.service.impl.IPostService;
 
 import java.util.Optional;
-
+@Service
 public class PostService implements IPostService {
     @Autowired
     IPostRepository iPostRepository;
