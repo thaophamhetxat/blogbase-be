@@ -7,7 +7,9 @@ import thao.com.bewebblog.repository.IPostCategoryRepository;
 import thao.com.bewebblog.repository.IPostRepository;
 import thao.com.bewebblog.service.impl.IPostService;
 
+import java.util.Date;
 import java.util.Optional;
+
 @Service
 public class PostService implements IPostService {
     @Autowired
@@ -27,6 +29,12 @@ public class PostService implements IPostService {
     public Post savePost(Post post) {
         return iPostRepository.save(post);
     }
+
+//    @Override
+//    public void createPost(String content, Date created, String description, Integer users, Integer postCategory, Integer see) {
+//        iPostRepository.createPost(content,created,description,users,postCategory,see);
+//    }
+
 
     @Override
     public void removePost(int idPost) {

@@ -10,30 +10,44 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idPost;
     String content;
+    String description;
     Date created;
-    int idUser;
-    int idPostCategory;
-    int idSee;
+    String image;
     @ManyToOne
     Users users;
     @ManyToOne
     PostCategory postCategory;
     @ManyToOne
-  See see;
+    See see;
 
     public Post() {
     }
 
-    public Post(int idPost, String content, Date created, int idUser, int idPostCategory, int idSee, Users users,PostCategory postCategory, See see) {
+    public Post(int idPost, String content,String image, String description, Date created, Users users, PostCategory postCategory, See see) {
         this.idPost = idPost;
         this.content = content;
+        this.description = description;
+        this.image = image;
         this.created = created;
-        this.idUser = idUser;
-        this.idPostCategory = idPostCategory;
-        this.idSee = idSee;
         this.users = users;
         this.postCategory = postCategory;
         this.see = see;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getIdPost() {
@@ -60,30 +74,6 @@ public class Post {
         this.created = created;
     }
 
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public int getIdPostCategory() {
-        return idPostCategory;
-    }
-
-    public void setIdPostCategory(int idPostCategory) {
-        this.idPostCategory = idPostCategory;
-    }
-
-    public int getIdSee() {
-        return idSee;
-    }
-
-    public void setIdSee(int idSee) {
-        this.idSee = idSee;
-    }
-
     public Users getUsers() {
         return users;
     }
@@ -107,4 +97,6 @@ public class Post {
     public void setSee(See see) {
         this.see = see;
     }
+
+
 }
