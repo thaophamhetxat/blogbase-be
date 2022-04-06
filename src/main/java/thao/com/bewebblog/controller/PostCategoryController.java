@@ -12,7 +12,8 @@ import java.util.Optional;
 
 @Aspect
 @RestController
-@RequestMapping("/blog/postCategory")
+@RequestMapping("/blog/categories")
+@CrossOrigin("*")
 public class PostCategoryController {
     @Autowired
     IPostCategoryService iPostCategoryService;

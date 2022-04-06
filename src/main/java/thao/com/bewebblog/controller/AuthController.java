@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import thao.com.bewebblog.dto.request.ChangeAvatar;
 import thao.com.bewebblog.dto.request.SignInForm;
 import thao.com.bewebblog.dto.request.SignUpForm;
 import thao.com.bewebblog.dto.response.JwtResponse;
@@ -92,23 +93,23 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(token, userPrinciple.getName(), userPrinciple.getAuthorities()));
     }
 
-//    @PutMapping("/change-avatar")
-//    public ResponseEntity<?> changeAvatar(HttpServletRequest request, @Valid @RequestBody ChangeAvatar changeAvatar){
-//
-//        String jwt = jwtTokenFilter.getJwt(request);
-//        String username = jwtProvider.getUerNameFromToken(jwt);
-//        Users users;
-//        try {
-//            if(changeAvatar.getAvatar()==null){
-//                return new ResponseEntity<>(new ResponseMessage("no"), HttpStatus.OK);
-//            } else {
-//                users = userService.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("User Not Found -> username"+username));
-//                users.setAvatar(changeAvatar.getAvatar());
-//                userService.save(users);
-//            }
-//            return new ResponseEntity<>(new ResponseMessage("yes"), HttpStatus.OK);
-//        } catch (UsernameNotFoundException exception){
-//            return new ResponseEntity<>(new ResponseMessage(exception.getMessage()), HttpStatus.NOT_FOUND);
-//        }
-//    }
+    @PutMapping("/change-avatar")
+    public ResponseEntity<?> changeAvatar(HttpServletRequest request, @Valid @RequestBody ChangeAvatar changeAvatar){
+
+        String jwt = jwtTokenFilter.getJwt(request);
+        String username = jwtProvider.getUerNameFromToken(jwt);
+        Users users;
+        try {
+            if(changeAvatar.getAvatar()==null){
+                return new ResponseEntity<>(new ResponseMessage("no"), HttpStatus.OK);
+            } else {
+                users = userService.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("User Not Found -> username"+username));
+                users.setAvatar(changeAvatar.getAvatar());
+                userService.save(users);
+            }
+            return new ResponseEntity<>(new ResponseMessage("yes"), HttpStatus.OK);
+        } catch (UsernameNotFoundException exception){
+            return new ResponseEntity<>(new ResponseMessage(exception.getMessage()), HttpStatus.NOT_FOUND);
+        }
+    }
 }
